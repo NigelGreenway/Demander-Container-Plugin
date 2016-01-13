@@ -11,6 +11,16 @@
         }
     ],
     "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "Demander\\Container\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Demander\\Container\\Test\\": "tests/"
+        }
+    },
     "require": {
         "nigelgreenway/colonel": "^0.3"
     },
