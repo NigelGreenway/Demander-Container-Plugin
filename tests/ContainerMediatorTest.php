@@ -31,15 +31,22 @@ class ContainerMediatorTest extends PHPUnit_Framework_TestCase
 
     public static function setUpBeforeClass()
     {
-        $container = new Container(null, null, null);
-        $container->add(
-            RegisteredQueryHandler::class,
-            RegisteredQueryHandler::class
-        )->withArgument('query.test');
-        $container->add(
-            RegisteredCommandHandler::class,
-            RegisteredCommandHandler::class
-        )->withArgument('command.test');
+        $container = new Container([
+            'di' => [
+                RegisteredQueryHandler::class => [
+                    'class' => RegisteredQueryHandler::class,
+                    'arguments' => [
+                        'query.test',
+                    ],
+                ],
+                RegisteredCommandHandler::class => [
+                    'class'     => RegisteredCommandHandler::class,
+                    'arguments' => [
+                        'command.test',
+                    ],
+                ],
+            ]
+        ]);
 
         static::$mediator = new ContainerMediator(
             $container,
