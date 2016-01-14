@@ -58,7 +58,7 @@ class ContainerMediatorTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Demander\ContainerMediator::query
+     * @covers Demander\ContainerMediator::request
      */
     public function test_request_throws_QueryNotFoundException()
     {
@@ -67,7 +67,7 @@ class ContainerMediatorTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Demander\ContainerMediator::query
+     * @covers Demander\ContainerMediator::request
      * @covers Demander\ContainerMediator::addQueryHandlers
      */
     public function test_request_returns_a_RegisteredQuery()
