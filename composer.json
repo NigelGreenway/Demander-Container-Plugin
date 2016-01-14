@@ -1,5 +1,5 @@
 {
-    "name": "nigel/demander-container-plugin",
+    "name": "nigelgreenway/demander-container-plugin",
     "description": "A mediator for nigelgreenway/demander using league/container",
     "type": "lib",
     "license": "MIT",
