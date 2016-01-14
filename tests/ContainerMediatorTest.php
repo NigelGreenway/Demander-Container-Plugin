@@ -58,7 +58,7 @@ class ContainerMediatorTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Demander\CommandMediatorInterface::request
+     * @covers Demander\ContainerMediator::query
      */
     public function test_request_throws_QueryNotFoundException()
     {
@@ -67,8 +67,8 @@ class ContainerMediatorTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Demander\CommandMediatorInterface::request
-     * @covers Demander\CommandMediatorInterface::addQueryHandlers
+     * @covers Demander\ContainerMediator::query
+     * @covers Demander\ContainerMediator::addQueryHandlers
      */
     public function test_request_returns_a_RegisteredQuery()
     {
@@ -89,7 +89,7 @@ class ContainerMediatorTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Demander\CommandMediatorInterface::execute
+     * @covers Demander\ContainerMediator::execute
      */
     public function test_request_throws_CommandNotFoundException()
     {
@@ -98,8 +98,8 @@ class ContainerMediatorTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Demander\CommandMediatorInterface::execute
-     * @covers Demander\CommandMediatorInterface::addCommandHandlers
+     * @covers Demander\ContainerMediator::execute
+     * @covers Demander\ContainerMediator::addCommandHandlers
      */
     public function test_RegisteredCommand_is_executed()
     {
