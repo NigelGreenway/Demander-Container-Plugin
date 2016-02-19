@@ -1,5 +1,5 @@
 {
-    "name": "nigel/demander-container-plugin",
+    "name": "nigelgreenway/demander-container-plugin",
     "description": "A mediator for nigelgreenway/demander using league/container",
     "type": "lib",
     "license": "MIT",
@@ -22,12 +22,13 @@
         }
     },
     "require": {
+        "php": ">= 5.5",
         "nigelgreenway/demander": "^1.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^5.1",
+        "phpunit/phpunit": "^4",
         "squizlabs/php_codesniffer": "^2.5",
-        "league/container": "^2.0"
+        "league/container": "^1"
     },
     "scripts": {
         "test": "./vendor/bin/phpunit -c phpunit.xml.dist"

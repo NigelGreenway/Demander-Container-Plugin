@@ -31,15 +31,22 @@ class ContainerMediatorTest extends PHPUnit_Framework_TestCase
 
     public static function setUpBeforeClass()
     {
-        $container = new Container(null, null, null);
-        $container->add(
-            RegisteredQueryHandler::class,
-            RegisteredQueryHandler::class
-        )->withArgument('query.test');
-        $container->add(
-            RegisteredCommandHandler::class,
-            RegisteredCommandHandler::class
-        )->withArgument('command.test');
+        $container = new Container([
+            'di' => [
+                RegisteredQueryHandler::class => [
+                    'class' => RegisteredQueryHandler::class,
+                    'arguments' => [
+                        'query.test',
+                    ],
+                ],
+                RegisteredCommandHandler::class => [
+                    'class'     => RegisteredCommandHandler::class,
+                    'arguments' => [
+                        'command.test',
+                    ],
+                ],
+            ]
+        ]);
 
         static::$mediator = new ContainerMediator(
             $container,
@@ -58,7 +65,7 @@ class ContainerMediatorTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Demander\CommandMediatorInterface::request
+     * @cover Demander\ContainerMediator::query
      */
     public function test_request_throws_QueryNotFoundException()
     {
@@ -67,8 +74,8 @@ class ContainerMediatorTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Demander\CommandMediatorInterface::request
-     * @covers Demander\CommandMediatorInterface::addQueryHandlers
+     * @cover Demander\ContainerMediator::query
+     * @cover Demander\ContainerMediator::addQueryHandlers
      */
     public function test_request_returns_a_RegisteredQuery()
     {
@@ -89,7 +96,7 @@ class ContainerMediatorTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Demander\CommandMediatorInterface::execute
+     * @cover Demander\ContainerMediator::execute
      */
     public function test_request_throws_CommandNotFoundException()
     {
@@ -98,8 +105,8 @@ class ContainerMediatorTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Demander\CommandMediatorInterface::execute
-     * @covers Demander\CommandMediatorInterface::addCommandHandlers
+     * @cover Demander\ContainerMediator::execute
+     * @cover Demander\ContainerMediator::addCommandHandlers
      */
     public function test_RegisteredCommand_is_executed()
     {
