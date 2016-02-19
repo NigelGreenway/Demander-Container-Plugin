@@ -22,8 +22,9 @@ use League\Container\Container;
  * A mediator that resolves Queries and Commands via Container
  *
  * @author Nigel Greenway <github@futurepixels.co.uk>
+ * @final
  */
-final class ContainerMediator implements QueryMediatorInterface, CommandMediatorInterface
+class ContainerMediator implements QueryMediatorInterface, CommandMediatorInterface
 {
     /** @var Container */
     private $container;
